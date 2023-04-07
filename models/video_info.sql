@@ -18,7 +18,7 @@ with video_info_aws as (
     FROM raw_db.public.video_info_aws
 ),
 total_video_info as (
-    SELECT * FROM video_info
+    SELECT * FROM ANALYTICS.DBT_HH8.video_info
 ),
 final as (
     SELECt * FROM total_video_info

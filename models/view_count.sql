@@ -6,7 +6,7 @@ with view_count_aws as (
     FROM raw_db.public.view_count_aws
 ),
 total_view_count as (
-    SELECT * FROM view_count
+    SELECT * FROM ANALYTICS.DBT_HH8.view_count
 ),
 final as (
     SELECT * FROM total_view_count
