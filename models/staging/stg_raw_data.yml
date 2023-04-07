@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: stg_video_info
+    description: one unique video per row
+    columns: 
+      - name: col1
+        description: the primary key for stg_video_info
+        tests:
+          - not_null
+
+  - name: stg_comment_count
+    description: one comment count per video
+    columns:
+      - name: col1
+        description: the primary key for stg_comment_count
+        tests:
+          - not_null
+      
+  - name: stg_view_count
+    description: one view count per video
+    columns:
+      - name: col1
+        description: the primary key for stg_view_count
+        tests:
+          - not_null
+              
+              
