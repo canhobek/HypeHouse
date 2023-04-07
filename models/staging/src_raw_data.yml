@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: public
+    description: a clone of a Postgress applicaiton database
+    database: raw_db
+    schema: public
+    tables:
+      - name: video_info_aws
+        description: the raw video info data
+        columns:
+          - name: col1
+            description: the column that contains whole data
+            tests:
+              - not_null
+
+      - name: comment_count_aws
+        description: the raw comment count data
+        columns:
+          - name: col1
+            description: the column that contains whole data
+            tests:
+              - not_null
+      
+      - name: view_count_aws
+        description: the raw view count data
+        columns:
+          - name: col1
+            description: the column that contains whole data
+            tests:
+              - not_null
+              
