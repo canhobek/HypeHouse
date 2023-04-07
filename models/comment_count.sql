@@ -6,7 +6,7 @@ with new_day_comment_count as (
     FROM raw_db.public.comment_count_aws
 ),
 total_comment_count as (
-    SELECT * FROM comment_count
+    SELECT * FROM ANALYTICS.DBT_HH8.COMMENT_COUNT
 ),
 final as (
     SELECT * FROM total_comment_count
