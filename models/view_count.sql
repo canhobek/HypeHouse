@@ -16,7 +16,7 @@ final as (
 )
 */
 final as (
-    SELECT DISTINCT * FROM view_count_aws
+    SELECT * FROM view_count_aws
 )
 
 SELECT * FROM final

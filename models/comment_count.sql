@@ -16,7 +16,7 @@ final as (
 )
 */
 final as (
-    SELECT DISTINCT * FROM new_day_comment_count
+    SELECT * FROM new_day_comment_count
 )
 
 SELECT * FROM final
