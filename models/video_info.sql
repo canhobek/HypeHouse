@@ -20,9 +20,14 @@ with video_info_aws as (
 total_video_info as (
     SELECT * FROM ANALYTICS.DBT_HH8.video_info
 ),
+/*
 final as (
     SELECt * FROM total_video_info
     UNION
+    SELECT * FROM video_info_aws
+)
+*/
+final as (
     SELECT * FROM video_info_aws
 )
 

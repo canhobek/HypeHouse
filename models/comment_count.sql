@@ -8,9 +8,14 @@ with new_day_comment_count as (
 total_comment_count as (
     SELECT * FROM ANALYTICS.DBT_HH8.COMMENT_COUNT
 ),
+/*
 final as (
     SELECT * FROM total_comment_count
     UNION
+    SELECT * FROM new_day_comment_count
+)
+*/
+final as (
     SELECT * FROM new_day_comment_count
 )
 

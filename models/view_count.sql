@@ -8,9 +8,14 @@ with view_count_aws as (
 total_view_count as (
     SELECT * FROM ANALYTICS.DBT_HH8.view_count
 ),
+/*
 final as (
     SELECT * FROM total_view_count
     UNION
+    SELECT * FROM view_count_aws
+)
+*/
+final as (
     SELECT * FROM view_count_aws
 )
 
