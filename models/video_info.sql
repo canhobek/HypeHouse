@@ -7,7 +7,7 @@ with video_info_aws as (
     , col1:description_for_client_HyPeHoUsE::varchar                                    AS description
     , col1:dislikes_for_client_HyPeHoUsE::numeric                                       AS dislikes
     , col1:likes_for_client_HyPeHoUsE::varchar                                          AS likes
-    , col1:publishedAt_for_client_HyPeHoUsE::datetime                                   AS published_at
+    , CONVERT_TIMEZONE('Etc/GMT', 'Europe/Paris', col1:publishedAt_for_client_HyPeHoUsE::datetime::timestamp_ntz)                                 AS published_at
     , col1:ratings_disabled_for_client_HyPeHoUsE::boolean                               AS ratings_disabled
     , REPLACE(col1:tags_for_client_HyPeHoUsE::varchar, '|', ',')                                           AS tags
     , col1:thumbnail_link_for_client_HyPeHoUsE::varchar                                 AS thumbnail_link
@@ -29,7 +29,7 @@ final as (
 */
 final as (
     --SELECT * FROM video_info_aws
-    SELECT DISTINCT * FROM video_info_aws
+    SELECT * FROM video_info_aws
 )
 
 SELECT * FROM final
