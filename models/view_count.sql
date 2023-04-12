@@ -1,8 +1,9 @@
 with view_count_aws as (
-    --SELECT * FROM raw_db.public.view_count_aws
     SELECT col1:video_id::varchar         AS video_id
         , col1:view_count::number         AS view_count
-    FROM {{ ref('stg_view_count') }}
+        , trend_date
+    --FROM {{ ref('stg_view_count') }}
+    FROM raw_db.public.view_count_aws
     WHERE video_id NOT LIKE 'video_id'
 ),
 total_view_count as (
