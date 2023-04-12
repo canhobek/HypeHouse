@@ -15,10 +15,15 @@ with video_info_aws as (
     , TO_DATE(col1:trending_date_for_client_HyPeHoUsE::varchar, 'YY.MM.DD')             AS trending_date
     , col1:video_id_for_client_HyPeHoUsE::varchar                                       AS video_id
     FROM {{ ref('stg_video_info') }}
-    --FROM raw_db.public.video_info_aws
+    WHERE video_id NOT LIKE 'video_id'
 ),
 total_video_info as (
     SELECT * FROM ANALYTICS.DBT_HH8.video_info
+),
+youtube_category as (
+    SELECT category_id as youtube_category_id
+        , category_name
+    FROM {{ ref('youtube_category') }}
 ),
 /*
 final as (
@@ -28,11 +33,15 @@ final as (
 )
 */
 final as (
-    --SELECT * FROM video_info_aws
     SELECT * FROM video_info_aws
+    LEFT JOIN youtube_category
+        ON youtube_category.youtube_category_id = video_info_aws.category_id 
 )
 
-SELECT * FROM final
+SELECT * EXCLUDE(category_id, youtube_category_id) FROM final
+
+
+
 
 
 
