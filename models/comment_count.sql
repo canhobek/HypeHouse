@@ -3,7 +3,8 @@ with new_day_comment_count as (
         , col1:comment_count::numeric                   AS comment_count
         , trend_date                              
     --FROM {{ ref('stg_comment_count') }}
-    FROM raw_db.public.comment_count_aws
+    --FROM raw_db.public.comment_count_aws
+    FROM {{ source('public', 'comment_count_aws') }}
     WHERE video_id NOT LIKE 'video_id'
 ),
 /*

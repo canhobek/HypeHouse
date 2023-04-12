@@ -14,7 +14,7 @@ with video_info_aws as (
     , col1:title_for_client_HyPeHoUsE::varchar                                          AS title
     , TO_DATE(col1:trending_date_for_client_HyPeHoUsE::varchar, 'YY.MM.DD')             AS trending_date
     , col1:video_id_for_client_HyPeHoUsE::varchar                                       AS video_id
-    FROM {{ ref('stg_video_info') }}
+    FROM {{ source('public', 'video_info_aws') }}
     WHERE video_id NOT LIKE 'video_id'
 ),
 total_video_info as (
