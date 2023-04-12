@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: video_trend_record
+    description: count of how long a video has been trending for.
+    columns: 
+      - name: video_id
+        description: video id
+        tests:
+          - not_null
+      - name: frequency
+        description: count of video freq.
+
+
+              
