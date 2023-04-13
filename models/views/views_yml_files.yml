@@ -1,0 +1,94 @@
+version: 2
+
+models:
+  - name: video_trend_record
+    description: count of how long a video has been trending for.
+    columns: 
+      - name: video_id
+        description: video id
+        tests:
+          - not_null
+      - name: frequency
+        description: count of video freq.
+
+  - name: video_analytics
+    description: detailed video data
+    columns:
+      - name: video_id
+        description: video id
+        tests:
+          - not_null
+
+      - name: category_name
+        description: category name
+        tests:
+          - not_null
+     
+      - name: channel_id
+        description: channel id
+        tests:
+          - not_null
+      
+      - name: channel_title
+        description: channel title
+        tests:
+          - not_null
+      
+      - name: likes
+        description: total likes
+        tests:
+          - not_null
+      
+      - name: dislikes
+        description: total dislikes
+        tests:
+          - not_null
+      
+      - name: published_at
+        description: published date and time
+        tests:
+          - not_null
+      
+      - name: trending_date
+        description: trending date of video
+        tests:
+          - not_null
+      
+      - name: tags
+        description: tags of the video
+        tests:
+          - not_null
+      
+      - name: title
+        description: title of the video
+        tests:
+          - not_null
+      
+      - name: comment_count
+        description: comment count of the video in trending date
+        tests:
+          - not_null
+      
+      - name: view_count
+        description: view count of the video in trending date
+        tests:
+          - not_null
+      
+      - name: first_trending_date
+        description: the first date that video entered in trending
+        tests:
+          - not_null
+      
+      - name: last_trending_date
+        description: the last date that video wa in trends
+        tests:
+          - not_null
+      
+      - name: number_of_days_in_trend
+        description: the total number of days that video stayed in trends (it counts if it eneter 1st day 2nd day no and the 3rd dayy es again)
+        tests:
+          - not_null
+
+
+
+              
