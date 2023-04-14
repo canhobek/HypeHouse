@@ -39,3 +39,5 @@ models:
       +materialized: view
     views:
       +materialized: view
+    new_models:
+      +materialized: table

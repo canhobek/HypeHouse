@@ -29,4 +29,41 @@ sources:
             description: the column that contains whole data
             tests:
               - not_null
+  
+  - name: new_raw_data
+    description: a clone of a Postgress applicaiton database
+    database: raw_db
+    schema: new_raw_data
+    tables:
+      - name: new_video_info_aws
+        description: the raw video info data
+        columns:
+          - name: col1
+            description: the column that contains whole data
+            tests:
+              - not_null
+
+      - name: new_comment_count_aws
+        description: the raw comment count data
+        columns:
+          - name: col1
+            description: the column that contains whole data
+            tests:
+              - not_null
+      
+      - name: new_view_count_aws
+        description: the raw view count data
+        columns:
+          - name: col1
+            description: the column that contains whole data
+            tests:
+              - not_null
+      
+      - name: new_likes_count_aws
+        description: the raw view count data
+        columns:
+          - name: col1
+            description: the column that contains whole data
+            tests:
+              - not_null
               
