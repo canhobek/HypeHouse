@@ -1,2 +1,2 @@
 SELECT *
-FROM {{ source('public', 'video_info_aws') }}
+FROM {{ source('new_raw_data', 'new_video_info_aws') }}

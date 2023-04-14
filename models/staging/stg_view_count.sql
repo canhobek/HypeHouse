@@ -1,2 +1,2 @@
 SELECT *
-FROM {{ source('public', 'view_count_aws') }}
+FROM {{ source('new_raw_data', 'new_view_count_aws') }}
