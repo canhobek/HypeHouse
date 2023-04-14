@@ -58,13 +58,3 @@ final AS (
 )
 
 SELECT * FROM final
-
-
-
-
-
-/*
-SELECT dt.value:categoryId_for_client_HyPeHoUsE::number
-FROM {{ source('new_raw_data', 'new_video_info_aws') }}
-    , LATERAL FLATTEN(INPUT => col1:data) as dt
-*/
