@@ -12,7 +12,7 @@ with video_info_aws as (
     , REPLACE(col1:tags_for_client_HyPeHoUsE::varchar, '|', ',')                                                            AS tags
     , col1:thumbnail_link_for_client_HyPeHoUsE::varchar                                                                     AS thumbnail_link
     , col1:title_for_client_HyPeHoUsE::varchar                                                                              AS title
-    , TO_DATE(col1:trending_date_for_client_HyPeHoUsE::varchar, 'YY.MM.DD')                                                 AS trending_date
+    , TO_DATE(col1:trending_date_for_client_HyPeHoUsE::varchar, 'YY.DD.MM')                                                 AS trending_date
     , col1:video_id_for_client_HyPeHoUsE::varchar                                                                           AS video_id
     FROM {{ source('public', 'video_info_aws') }}
     WHERE video_id NOT LIKE 'video_id'
