@@ -5,7 +5,7 @@ SELECT video_id
     , MIN(trending_date) AS first_trending_date
     , MAX(trending_date) AS last_trending_date
     , DATEDIFF(day, first_trending_date, last_trending_date) AS number_of_days_in_trend
-FROM {{ ref('video_info') }}
+FROM {{ ref('new_video_info') }}
 GROUP BY video_id
 
 
