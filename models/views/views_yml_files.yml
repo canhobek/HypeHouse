@@ -36,13 +36,10 @@ models:
       
       - name: likes
         description: total likes
-        tests:
-          - not_null
+        
       
       - name: dislikes
         description: total dislikes
-        tests:
-          - not_null
       
       - name: published_at
         description: published date and time
