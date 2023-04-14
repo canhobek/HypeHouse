@@ -51,7 +51,6 @@ category_name_added_to_new as (
         ON youtube_category.youtube_category_id = new_video_info_aws.category_id
 ),
 final AS (
-    --SELECT * FROM {{ ref('video_info') }}
     SELECT * FROM category_name_added_to_old
     UNION
     SELECT * FROM category_name_added_to_new
