@@ -25,4 +25,13 @@ models:
         tests:
           - not_null
               
-              
+  - name: stg_tags_list
+    description: tables for tags
+    columns:
+      - name: video_id
+      - name: trending_date
+      - name: index
+      - name: tag_index
+      - name: tag_value
+
+
