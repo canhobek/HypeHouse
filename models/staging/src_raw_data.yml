@@ -66,4 +66,11 @@ sources:
             description: the column that contains whole data
             tests:
               - not_null
-              
+
+  - name: employees
+    description: a clone of a Postgress applicaiton database
+    database: employees
+    schema: public
+    tables:
+      - name: employees
+        
