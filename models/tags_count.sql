@@ -11,11 +11,7 @@ WITH Tags AS (
         , split_tags.value     AS Tag_Value
     FROM Tags,
     LATERAL split_to_table(Tags.Tags, ',') AS split_tags
-), 
---WITH tags AS (
---    SELECT *
---    FROM {{ref('stg_tags_list')}}
---),
+),
 tags_count AS (
     SELECT DISTINCT
         LISTAGG(video_id, ', ') WITHIN GROUP (ORDER BY trending_date DESC) OVER (PARTITION BY stg_tags_list.Tag_Value)                 AS videos_id_list
