@@ -18,12 +18,13 @@ tags_count AS (
         , TO_NUMBER(YEAR(trending_date))                                                                                               AS year
         , TO_NUMBER(QUARTER(trending_date))                                                                                            AS quarter
         , TO_NUMBER(MONTH(trending_date))                                                                                              AS month
+        , TO_NUMBER(WEEK(trending_date))                                                                                               AS week
         , stg_tags_list.Tag_Value                                                                                                      AS tag
-        , COUNT(*)                OVER (PARTITION BY year, quarter, month, tag)                                                        AS tag_count
+        , COUNT(*)                OVER (PARTITION BY year, quarter, month, week, tag)                                                  AS tag_count
         , MAX(stg_tags_list.trending_date) OVER (PARTITION BY tag)                                                                     AS last_trend_date
     FROM stg_tags_list
 )
 SELECT *
 FROM tags_count
 WHERE tag !LIKE '[none]'
-ORDER BY year, quarter, month, tag_count DESC
+ORDER BY year, quarter, month, week, tag_count DESC
