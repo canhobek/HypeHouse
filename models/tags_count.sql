@@ -4,7 +4,7 @@ WITH Tags AS (
       , Trending_Date
       , Tags
     FROM {{ ref('video_info') }}
-), WITH stg_tags_list AS (
+), stg_tags_list AS (
     SELECT Video_ID
         , Trending_Date
         , split_tags.index     AS Tag_Index
@@ -18,7 +18,7 @@ WITH Tags AS (
 --),
 tags_count AS (
     SELECT DISTINCT
-        LISTAGG(video_id, ', ') WITHIN GROUP (ORDER BY trending_date DESC) OVER (PARTITION BY tags.Tag_Value)                 AS videos_id_list
+        LISTAGG(video_id, ', ') WITHIN GROUP (ORDER BY trending_date DESC) OVER (PARTITION BY stg_tags_list.Tag_Value)                 AS videos_id_list
         , stg_tags_list.Tag_Value                                                                                             AS tag
         , COUNT(*)                OVER (PARTITION BY tag)                                                                     AS tag_count
         , MAX(stg_tags_list.trending_date) OVER (PARTITION BY tag)                                                            AS last_trend_date
