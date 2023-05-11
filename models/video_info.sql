@@ -38,7 +38,7 @@ video_info_aws AS (
 youtube_category as (
     SELECT category_id as youtube_category_id
         , category_name
-    FROM raw_db.dbt_hh8.youtube_category
+    FROM raw_db.new_dbt_hh8.youtube_category
 ),
 category_name_added_to_old as (
     SELECT * EXCLUDE(category_id, youtube_category_id) FROM video_info_aws
