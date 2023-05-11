@@ -70,7 +70,7 @@ sources:
   - name: employees
     description: a clone of a Postgress applicaiton database
     database: employees
-    schema: public
+    schema: management
     tables:
       - name: employees
         
